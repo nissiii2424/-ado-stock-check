@@ -26,8 +26,8 @@ jobs:
 
       - run: pip install requests
 
-　　　　- run: python check.py
+      - run: python check.py
 
         env:
 
-    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
