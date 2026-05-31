@@ -1,9 +1,29 @@
+import os
+
 import requests
 
-url = "https://ado-officialshop-friedpotato.com/products/Ado26Ao_004V"
+URL = "https://ado-officialshop-friedpotato.com/products/Ado26Ao_004V"
 
-r = requests.get(url)
+html = requests.get(URL).text
 
-print(r.status_code)
+if "SOLD OUT" not in html:
 
-print("SOLD OUT" in r.text)
+    webhook = os.environ["DISCORD_WEBHOOK"]
+
+    requests.post(
+
+        webhook,
+
+        json={
+
+            "content": "🚨 Adoグッズの在庫が復活した可能性があります！\nhttps://ado-officialshop-friedpotato.com/products/Ado26Ao_004V"
+
+        }
+
+    )
+
+    print("Notification sent")
+
+else:
+
+    print("Still sold out")
