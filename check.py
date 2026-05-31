@@ -6,7 +6,7 @@ URL = "https://ado-officialshop-friedpotato.com/products/Ado26Ao_004V"
 
 html = requests.get(URL).text
 
-if "SOLD OUT" not in html:
+if True:
 
     webhook = os.environ["DISCORD_WEBHOOK"]
 
